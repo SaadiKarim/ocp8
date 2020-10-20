@@ -3,8 +3,8 @@ apt-get install curl wget python3-pip -y -qq
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 apt-get update -y -qq
-apt-get install default-jre default-jdk git unzip jenkins php php-{cli,curl,gd,intl,memcache,xml,zip,mbstring,json,mysql} -y -qq
-# apache2 libapache2-mod-php mariadb-server php php-{cli,curl,gd,intl,memcache,xml,zip,mbstring,json,mysql}  
+apt-get install default-jre default-jdk mariadb-server git unzip jenkins php php-{cli,curl,gd,intl,memcache,xml,zip,mbstring,json,mysql} -y -qq
+# apache2 libapache2-mod-php  php php-{cli,curl,gd,intl,memcache,xml,zip,mbstring,json,mysql}  
 a2enmod rewrite
 # systemctl reload apache2
 systemctl enable --now jenkins

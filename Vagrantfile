@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
     config.vm.provision "docker"
     config.vm.provision "docker_compose"
     config.vm.provider "virtualbox" do |v|
-      v.memory = 3072
+      v.memory = 4096
       v.cpus = 2
     end
   end

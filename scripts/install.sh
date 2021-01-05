@@ -1,12 +1,11 @@
 export DEBIAN_FRONTEND=noninteractive
-apt-get install curl wget python3-pip -y -qq
+add-apt-repository ppa:ondrej/php -y
+apt-get install curl wget python3-pip git unzip -y -qq
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 apt-get update -y -qq
-apt-get install default-jre default-jdk mariadb-server git unzip jenkins php php-{cli,curl,gd,intl,memcache,xml,zip,mbstring,json,mysql} -y -qq
-# apache2 libapache2-mod-php  php php-{cli,curl,gd,intl,memcache,xml,zip,mbstring,json,mysql}  
+apt-get install default-jre default-jdk mariadb-server jenkins php7.2 php7.2-{cli,curl,gd,intl,memcache,xml,zip,mbstring,json,mysql} -y -qq
 a2enmod rewrite
-# systemctl reload apache2
 systemctl enable --now jenkins
 cd ~
 curl -sS https://getcomposer.org/installer -o composer-setup.php
